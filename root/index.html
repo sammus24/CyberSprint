@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture the Flag - World Map</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Capture the Flag</h1>
+        <p>Click a country on the map to capture its flag by answering a question!</p>
+        <div id="map-container">
+            <svg id="world-map"></svg>
+        </div>
+        <div id="question-modal" class="hidden">
+            <h2 id="country-name"></h2>
+            <p id="question"></p>
+            <input type="text" id="answer" placeholder="Enter your answer">
+            <button onclick="submitAnswer()">Submit</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/map.js"></script>
+</body>
+</html>
