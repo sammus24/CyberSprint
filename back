@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hackboard - CTF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .navbar {
+            background: #2c3e50;
+        }
+        
+        .navbar-nav a {
+            color: #ecf0f1 !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav a:hover {
+            color: #e74c3c !important;
+        }
+
+        .display-4 {
+            font-size: 3rem;
+            color: #e74c3c;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .table th, .table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table thead {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .table tbody tr {
+            background-color: #34495e;
+        }
+
+        .table tbody tr:hover {
+            background-color: #1abc9c;
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .table td {
+            color: #ecf0f1;
+        }
+
+        .leaderboard-title {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #ecf0f1;
+            text-shadow: 0px 0px 10px #e74c3c, 0px 0px 20px #e74c3c;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #34495e;
+            border-radius: 8px;
+            margin: 5px 0;
+            font-size: 1.2rem;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .leaderboard-item:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
+        }
+
+        .score {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar navbar-dark text-white">
+        <div class="container">
+            <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+                <div class="navbar-nav">
+                    <a href="index.html" class="pl-md-0 p-3 text-decoration-none text-light">
+                        <h3 class="bold"><span class="color_danger">LAKSHYA</span><span class="color_white">CTF</span></h3>
+                    </a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="p-3 text-decoration-none text-light bold">Home</a>
+                    <a href="about.html" class="p-3 text-decoration-none text-light bold">About</a>
+                    <a href="hackerboard.html" class="p-3 text-white bold">Hackerboard</a>
+                    <a href="quests.html" class="p-3 text-decoration-none text-light bold">Challenges</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="container mt-5">
+        <h1 class="leaderboard-title">Hackerboard</h1>
+
+        <div id="leaderboard">
+            <!-- Data will be dynamically added here -->
+        </div>
+
+    </div>
+
+    <script>
+        // Fetch leaderboard data from the server
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://127.0.0.1:5000/leaderboard");
+                const data = await response.json();
+                console.log("Leaderboard data:", data);
+
+                // Clear previous leaderboard entries
+                const leaderboardContainer = document.getElementById("leaderboard");
+                leaderboardContainer.innerHTML = ""; // Clear existing data
+
+                // Populate leaderboard with fetched data
+                data.forEach((player, index) => {
+                    const leaderboardItem = document.createElement("div");
+                    leaderboardItem.classList.add("leaderboard-item");
+
+                    leaderboardItem.innerHTML = `
+                        <span>${index + 1}. ${player.username}</span>
+                        <span class="score">${player.score}</span>
+                    `;
+
+                    leaderboardContainer.appendChild(leaderboardItem);
+                });
+            } catch (error) {
+                console.error("Error fetching leaderboard:", error);
+            }
+        }
+
+        // Fetch leaderboard when the page loads
+        window.onload = fetchLeaderboard;
+    </script>
+
+</body>
+</html>

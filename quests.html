@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<title>Nirav CTF - Quests</title>
+<link href="css/bootstrap4-neon-glow.min.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+</head>
+<body>
+<div class="navbar-dark text-white">
+<div class="container">
+<nav class="navbar px-0 py-0 navbar-expand-lg navbar-dark">
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav">
+<a class="p-3 text-light bold" href="index.html">Home</a>
+<a class="p-3 text-light bold" href="about.html">About</a>
+<a class="p-3 text-light bold" href="hackerboard.html">Hackerboard</a>
+<a class="p-3 text-white bold" href="quests.html">Challenges</a>
+<a class="p-3 text-light bold" href="#">Logout</a>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="jumbotron bg-transparent mb-0 pt-0 radius-0">
+<div class="container">
+<div class="row">
+<div class="col-xl-12 text-center">
+<h1 class="display-1 bold color_white content__title">QUESTS<span class="vim-caret"> </span></h1>
+<p class="text-grey text-spacey hackerFont lead mb-5">
+                        It's time to show the world what you can do!
+                    </p>
+</div>
+</div>
+<div class="row hackerFont">
+<div class="col-md-12">
+<h4>Challenges</h4>
+</div>
+<!-- Encryption 1 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_1" data-toggle="collapse">
+            Encryption 1 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_1">
+<blockquote class="card-blockquote">
+<p>Decrypt the message below:<br/>A osfl lg tw lzw nwjq twkl dacw fg gfw wnwj osk .</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint</button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_1" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_1")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Encryption 2 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_2" data-toggle="collapse">
+            Encryption 2 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_2">
+<blockquote class="card-blockquote">
+<p>Decrypt the cipher found in <strong>Encryption_2.txt</strong>.</p>
+<a class="btn btn-outline-info btn-sm mb-2" download="" href="resources/Encryption_2.txt">Download Cipher</a>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Try frequency analysis or substitution.")'>Reveal Hint</button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Try frequency analysis or substitution.</p>
+</blockquote>
+<textarea class="form-control mt-2" id="answer-problem_id_2" placeholder="Enter your answer" rows="4"></textarea>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_2")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Encryption 3 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_3" data-toggle="collapse">
+            Encryption 3 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_3">
+<blockquote class="card-blockquote">
+<p>Solve the cipher below:<br/><code>EOFPH YLYLU AUVHO JEONE TEHDY LSACI RSATS OSSPN OTNII HIEPC RSEAR EOOMS FMAYF IOTRV ES</code></p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Look for columnar transposition patterns.")'>Reveal Hint</button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Look for columnar transposition patterns.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_3" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_3")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Encryption 4 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_4" data-toggle="collapse">
+            Encryption 4 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_4">
+<blockquote class="card-blockquote">
+<p>Solve the cipher shown in the image:</p>
+<img alt="Encryption 4 Cipher" class="img-fluid rounded mb-2" src="resources/Encryption_4.PNG"/>
+<a class="btn btn-outline-info btn-sm" download="" href="resources/Encryption_4.txt">Download Description</a>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_4" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_4")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Encryption 5 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_5" data-toggle="collapse">
+            Encryption 5 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_5">
+<blockquote class="card-blockquote">
+<p>Use the codebook found in <strong>Encryption_5_Codebook.docx</strong> to solve the cipher below:</p>
+<pre>Loud Vine Cow Rug Air Cow Flip Compress Dispense Moon Boot Worth Adviser Night</pre>
+<a class="btn btn-outline-info btn-sm" download="" href="resources/Encryption_5_Codebook.docx">Download Codebook</a>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_5" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_5")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Encryption 6 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_6" data-toggle="collapse">
+            Encryption 6 <span class="badge">80 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_6">
+<blockquote class="card-blockquote">
+<p>Decrypt the reversed message found in <strong>Encryption_6.txt</strong>.</p>
+<a class="btn btn-outline-info btn-sm" download="" href="C:\Users\cyber\Downloads\CT-master\CT-master\Encryption\Encryption_6.txt">Download Text</a>
+</blockquote>
+<textarea class="form-control mt-2" id="answer-problem_id_6" placeholder="Enter your answer" rows="4"></textarea>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_6")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Netowrking_1 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_7" data-toggle="collapse">
+                            Network 1 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_7">
+<blockquote class="card-blockquote">
+<p>What are the four different Network Sizes we talked about in class? </p> <button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a Mentorxxxxxx")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a Mentorxx.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_7" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_7")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Network_2 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_8" data-toggle="collapse">
+                            Network 2 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_8">
+<blockquote class="card-blockquote">
+<p>	What is the ordered from smallest to largest?</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a Mentorxxxxxx")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a Mentorxx.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_8" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_8")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Netowrking_3 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_9" data-toggle="collapse">
+                            Network 3 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_9">
+<blockquote class="card-blockquote">
+<p>What type of topology is depicted in the Topology.jpg file?</p> <button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a Mentorxxxxxx")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a Mentorxx.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_9" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_9")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Network_4 -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_10" data-toggle="collapse">
+                            Network 4 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_10">
+<blockquote class="card-blockquote">
+<p>	What is the MAC address of your computer?</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a Mentorxxxxxx")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a Mentorxx.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_10" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_10")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Network_5 with file upload-->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_11" data-toggle="collapse">
+                            Network 5 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_11">
+<blockquote class="card-blockquote">
+<p>	Run a ping on 127.0.0.1, 8.8.8.8, and sciencecenter.org. 
+Submit a screenshot of the result. </p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a Mentor")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a Mentorxx.</p>
+</blockquote>
+<label class="mt-2">Upload your evidence (screenshot or file):</label>
+<input class="form-control-file" id="file-upload-problem_id_2" type="file"/>
+<button class="btn btn-primary mt-2" onclick="submitAnswerWithFile('problem_id_2')">Submit</button>
+</div>
+</div>
+</div>
+<!-- Network_6  -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_12" data-toggle="collapse">
+            Network 6 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_12">
+<blockquote class="card-blockquote">
+<p>Given the Wireshark capture, what service is being used?</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Look at the type of streaming data")'>Reveal Hint</button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Look at the type of streaming data.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_12" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_12")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Hashing 1-->
+<div class="col-md-4 mb-3">
+<div class="card category_crypto">
+<div class="card-header" data-target="#problem_id_13" data-toggle="collapse">
+                          Hashing 1 <span class="badge">50 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_13">
+<blockquote class="card-blockquote">
+<p>Which picture matches the following MD5 hash?
+
+395d5bd37c694661453791dd71433dd4.</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_13" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_13")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Hashing 2-->
+<div class="col-md-4 mb-3">
+<div class="card category_crypto">
+<div class="card-header" data-target="#problem_id_14" data-toggle="collapse">
+                          Hashing 2 <span class="badge">50 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_14">
+<blockquote class="card-blockquote">
+<p>What is the SHA256 hash of Leo&amp;Gus?</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_14" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_14")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Hashing 3-->
+<div class="col-md-4 mb-3">
+<div class="card category_crypto">
+<div class="card-header" data-target="#problem_id_15" data-toggle="collapse">
+                          Hashing 3 <span class="badge">50 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_15">
+<blockquote class="card-blockquote">
+<p>Are the files Leo_1 and Leo_4 the same picture? How do you know? 
+If there is a secret message, use "Leo" to decrypt it.
+Subtmit the secret message if there is one. 
+</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_15" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_15")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Hashing 4-->
+<div class="col-md-4 mb-3">
+<div class="card category_crypto">
+<div class="card-header" data-target="#problem_id_16" data-toggle="collapse">
+                          Hashing 4 <span class="badge">50 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_16">
+<blockquote class="card-blockquote">
+<p>Are the files Gus_2, Gus_5, and Gus_6 the same picture? How do you know?
+If there is a secret message, use "Gus" to decrypt it.
+Submit the secret message if there is one.
+</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_16" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_16")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Hashing 5-->
+<div class="col-md-4 mb-3">
+<div class="card category_crypto">
+<div class="card-header" data-target="#problem_id_17" data-toggle="collapse">
+                          Hashing 5 <span class="badge">50 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_17">
+<blockquote class="card-blockquote">
+<p>Are the files titled 'plane' and 'ship' the same photo?
+Are their hashes the same?
+Why are they the same or different?
+</p>
+<button class="btn btn-warning mt-2" onclick='revealHint(this, "Ask a mentor.")'>Reveal Hint </button>
+<p class="hint-text" style="display: none;"><strong>Hint:</strong> Ask a mentor.</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_17" placeholder="Enter your answer" type="text"/>
+<button class="btn btn-primary mt-2" onclick='submitAnswer("problem_id_17")'>Submit</button>
+</div>
+</div>
+</div>
+<!-- Programming -->
+<!-- Programming 1 -->
+<div class="col-md-4 mb-3">
+<div class="card category_programming">
+<div class="card-header" data-target="#problem_id_18" data-toggle="collapse">
+            Programming 1 <span class="badge">70 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_18">
+<blockquote class="card-blockquote">
+<p>There are 6 bugs in the Python code below. Identify and fix the code to make it run correctly.</p>
+<pre>
+print(This program will ask the user for two variables then caculate the sum, difference, product, and quotient)
+Print('This program will also let you know if you picked large numbers or not')
+print()
+x = int(input('What is the first number? '))
+y = int(input('What is the second number? '))
+print()
+print ('The sum of the two numbers is', x+y)
+print()
+print ('The difference of the two numbers is', x-y)
+print()
+print ('The product of the two numbers is', x+y)
+print()
+print 'The quotient of the two numbers is', x/y
+print()
+if x &gt; 100 or y &gt; 100
+  print ('Wow! You picked some pretty large numbers!')
+if x &lt; 100 or y &lt; 100:
+print ('Try picking larger numbers next time!')
+                </pre>
+<div class="mt-3">
+<strong>Download Starter Code:</strong>
+<a class="btn btn-outline-info btn-sm ml-2" download="" href="resources/Programming_1.txt">
+                        Programming_1.txt
+                    </a>
+</div>
+</blockquote>
+<textarea class="form-control mt-2" id="answer-problem_id_18" placeholder="Enter your corrected version" rows="6"></textarea>
+<button class="btn btn-primary mt-2" onclick="submitAnswer('problem_id_10')">Submit</button>
+</div>
+</div>
+</div>
+<!-- Programming 2 -->
+<div class="col-md-4 mb-3">
+<div class="card category_programming">
+<div class="card-header" data-target="#problem_id_19" data-toggle="collapse">
+            Programming 2 <span class="badge">60 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_19">
+<blockquote class="card-blockquote">
+<p>Write a program to ask the user for their name, print their name, define a variable, and print the variable.</p>
+</blockquote>
+<textarea class="form-control mt-2" id="answer-problem_id_19" placeholder="Paste your code here" rows="6"></textarea>
+<button class="btn btn-primary mt-2" onclick="submitAnswer('problem_id_11')">Submit</button>
+</div>
+</div>
+</div>
+<!-- Programming 3 -->
+<div class="col-md-4 mb-3">
+<div class="card category_programming">
+<div class="card-header" data-target="#problem_id_20" data-toggle="collapse">
+            Programming 3 <span class="badge">60 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_20">
+<blockquote class="card-blockquote">
+<p>Reorder the following code chunks so that the program runs correctly. Enter the chunk numbers in order (e.g., 4, 5, 1, 3, 2):</p>
+<pre>
+Chunk #1: ans = input("Who's age would you like to know?...")  
+Chunk #2: if ans == '3': print(...)  
+Chunk #3: if ans == '1': print(...); if ans == '2': print(...)  
+Chunk #4: print("Hello and welcome...")  
+Chunk #5: num1 = 19 ...
+                </pre>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_20" placeholder="Enter chunk order" type="text"/>
+<button class="btn btn-primary mt-2" onclick="submitAnswer('problem_id_12')">Submit</button>
+</div>
+</div>
+</div>
+<!-- Programming 4 -->
+<div class="col-md-4 mb-3">
+<div class="card category_programming">
+<div class="card-header" data-target="#problem_id_21" data-toggle="collapse">
+            Programming 4 <span class="badge">60 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_21">
+<blockquote class="card-blockquote">
+<p>Using the algorithm described, how many iterations are required to sort the numbers correctly?</p>
+<pre>
+8 5 45 3 7 9 65 4 26 11 8
+                </pre>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_21" placeholder="Enter number of iterations" type="text"/>
+<button class="btn btn-primary mt-2" onclick="submitAnswer('problem_id_13')">Submit</button>
+</div>
+</div>
+</div>
+<!-- Programming 5 -->
+<div class="col-md-4 mb-3">
+<div class="card category_programming">
+<div class="card-header" data-target="#problem_id_22" data-toggle="collapse">
+            Programming 5 <span class="badge">60 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_22">
+<blockquote class="card-blockquote">
+<p>Without running the code, explain what it does (Password checking program).</p>
+<pre>
+x = input('What is the password? ')
+if x == 'Cyber' or x == 'Security':
+  print("Congratulations!...")
+if x == 'CyberSecurity':
+  print("You guessed the true password!...")
+elif ...
+                </pre>
+</blockquote>
+<textarea class="form-control mt-2" id="answer-problem_id_22" placeholder="Describe what the code does" rows="4"></textarea>
+<button class="btn btn-primary mt-2" onclick="submitAnswer('problem_id_14')">Submit</button>
+</div>
+</div>
+</div>
+<!--Bonus -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_23" data-toggle="collapse">
+                            Bonus 1 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_23">
+<blockquote class="card-blockquote">
+<p>	What is the IPv6 address of your computer?</p>
+<p> Show your Answer to a Mentor .</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_23" placeholder="Enter your answer" type="text"/>
+</div>
+</div>
+</div>
+<!-- -- Bonus -- -->
+<div class="col-md-4 mb-3">
+<div class="card category_web">
+<div class="card-header" data-target="#problem_id_24" data-toggle="collapse">
+                            Bonus 2 <span class="badge">100 points</span>
+</div>
+<div class="collapse show card-body" id="problem_id_24">
+<blockquote class="card-blockquote">
+<p>	What are all of these encoded with? </p>
+<pre>
+dGVzdDEyMw==
+Q3liZXJTZWN1cml0eSBydWxleg==
+VGhpcyB3YXMgdGhlIG1vc3QgZnVuIGNsYXNzIGV2ZXJycg==
+SSB3b25kZXIgd2hhdCB3b3JrIGF0IE5JV0MgaXMgbGlrZQ==
+TWF5YmUgdGhpcyBvbmUgd29ya3MgdG9vIA==
+</pre>
+<p> Show your Answer to a Mentor .</p>
+</blockquote>
+<input class="form-control mt-2" id="answer-problem_id_24" placeholder="Enter your answer" type="text"/>
+</div>
+</div>
+</div>
+<!-- Reveal Hint Function -->
+<script>
+        function revealHint(button, hintText) {
+            let hint = button.nextElementSibling;
+            if (hint.style.display === "none" || hint.style.display === "") {
+                hint.style.display = "block";
+                button.disabled = true;  // Disable button after revealing hint
+            }
+        }
+        
+    </script>
+<!-- Submit Answer Function -->
+<script>
+        const API_URL = "http://127.0.0.1:5000";
+
+        async function submitAnswer(problemId) {
+            let inputField = document.getElementById(`answer-${problemId}`);
+            let userAnswer = inputField.value.trim();
+            let username = localStorage.getItem("username");
+
+            if (!username) {
+                alert("You are not logged in. Redirecting to login.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            if (userAnswer === "") {
+                alert("Please enter an answer before submitting.");
+                return;
+            }
+
+            try {
+                console.log(`Submitting answer for ${problemId} as ${username}, Answer: ${userAnswer}`);
+
+                const response = await fetch(`${API_URL}/submit`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, problemId, answer: userAnswer })
+                });
+
+                const data = await response.json();
+                console.log("Submission Response:", data);
+
+                if (data.status === "correct") {
+                    alert("✅ Correct! You've earned points.");
+                    document.querySelector(`[data-target="#${problemId}"]`).classList.add("solved");
+                    updateScore(username); // Refresh the score
+                } else {
+                    alert("❌ Incorrect! Try again.");
+                }
+
+                inputField.value = "";
+            } catch (error) {
+                console.error("Error submitting answer:", error);
+                alert("❌ Error connecting to server.");
+            }
+        }
+
+        // Update score function
+        async function updateScore(username) {
+            try {
+                const response = await fetch(`${API_URL}/get_score?username=${username}`);
+                const data = await response.json();
+                document.getElementById("score-display").innerText = `Score: ${data.score}`;
+            } catch (error) {
+                console.error("Error updating score:", error);
+            }
+        }
+
+        // Ensure score is updated on page load
+        window.onload = function () {
+            let username = localStorage.getItem("username");
+            if (username) {
+                updateScore(username);
+            }
+        };
+    </script>
+</div></div></div></body>
+</html>
