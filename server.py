@@ -10,7 +10,7 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 users = {}
 @app.route('/')
 def index():
-    return "<h1>Hello from Replit!</h1><p>Your Flask app is running.</p>"  # Or render a template
+    return render_template('index.html')
 
 
 @app.route('/register', methods=['POST'])
