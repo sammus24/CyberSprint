@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, session
+from flask import Flask, request, jsonify, session, render_template
 from flask_cors import CORS
 import time
 
@@ -8,7 +8,10 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # Users dictionary
 users = {}
-
+@app.route('/')
+def index():
+    return render_template('index.html')
+    
 @app.route('/register', methods=['POST'])
 def register():
     try:
@@ -121,4 +124,4 @@ def leaderboard():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(debug=True, host="0.0.0.0", port=8080)
