@@ -12,9 +12,9 @@ users = {}
 def index():
     return render_template('index.html')
     
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['GET','POST'])
 def register():
-    try:
+    if request.method == 'POST':
         data = request.get_json()
         username = data.get("team_name")
         password = data.get("password")
@@ -34,11 +34,8 @@ def register():
 
         return jsonify({"status": "success", "message": "Registration successful!", "username": username})
 
-    except Exception as e:
-        return jsonify({"status": "error", "message": f"Server error: {str(e)}"}), 500
-@app.route('/register')
-def register_page():
-    return render_template('register.html')
+    else:
+        return render_template('register.html')
 
 @app.route('/login', methods=['POST'])
 def login():
