@@ -36,6 +36,9 @@ def register():
 
     except Exception as e:
         return jsonify({"status": "error", "message": f"Server error: {str(e)}"}), 500
+@app.route('/register')
+def register_page():
+    return render_template('register.html')
 
 @app.route('/login', methods=['POST'])
 def login():
