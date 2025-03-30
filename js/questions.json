@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "SQL Injection Challenge",
+      "description": "Find the vulnerability in the login system and bypass authentication.",
+      "points": 100
+    },
+    {
+      "id": 2,
+      "title": "Reverse Engineering",
+      "description": "Analyze this binary file to extract the flag.",
+      "points": 200
+    },
+    {
+      "id": 3,
+      "title": "Steganography",
+      "description": "There's a hidden message in this image. Can you find it?",
+      "points": 150
+    }
+  ]
+  
